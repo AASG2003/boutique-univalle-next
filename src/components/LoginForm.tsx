@@ -43,7 +43,7 @@ export function LoginForm() {
 
   useEffect(() => {
     if (session) {
-      router.push("/protected/menu");
+      router.push("/protected/products");
     }
   }, [router, session])
 

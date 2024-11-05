@@ -7,8 +7,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL+"/tienda/product";
 const api = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_URL+"/tienda/product",
     headers: {
-      'ngrok-skip-browser-warning': 'true', // Agregar este encabezado para evitar el warning
-      'User-Agent': 'Custom-User-Agent'     // Opción adicional para personalizar el User-Agent
+      'ngrok-skip-browser-warning': 'true', // Agregar este encabezado para evitar el warningt
     }
   });
 // Define la interfaz para un producto
@@ -16,7 +15,7 @@ export interface Product {
     idproducts: number;
     name: string;
     imageUrl: string;
-    unitPrice: number;
+    UnitPrice: number;
     is_deleted: number;
 }
 

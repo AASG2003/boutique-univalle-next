@@ -28,7 +28,7 @@ import { Button } from './ui/button';
 
 const productSchema = z.object({
     name: z.string().min(1, "Product name is required").max(100, "Name is too long"),
-    unitPrice: z.number().positive("Unit price must be positive").max(99999, "Price too high"),
+    UnitPrice: z.number().positive("Unit price must be positive").max(99999, "Price too high"),
     image: z
         .any()
         .refine((file) => file instanceof File, "Image file is required")
@@ -53,14 +53,14 @@ const CreateProductForm: React.FC = () => {
 
         const formData = new FormData();
         formData.append('name', data.name);
-        formData.append('unitPrice', data.unitPrice.toString());
+        formData.append('UnitPrice', data.UnitPrice.toString());
         if (imageFile) {
             formData.append('file', imageFile);
         }
         console.log(imageFile?.name)
         try {
             await productService.createProduct(formData);
-            router.push('/products');
+            router.refresh()
         } catch (error) {
             console.error('Error creating product:', error);
         } finally {
@@ -95,16 +95,16 @@ const CreateProductForm: React.FC = () => {
                 </FormItem>
 
                 <FormItem>
-                    <Label htmlFor="unitPrice">Unit Price</Label>
+                    <Label htmlFor="UnitPrice">Unit Price</Label>
                     <FormControl>
                         <Input
                             id="unitPrice"
                             type="number"
                             placeholder="Enter unit price"
-                            {...register('unitPrice', { valueAsNumber: true })}
+                            {...register('UnitPrice', { valueAsNumber: true })}
                         />
                     </FormControl>
-                    {errors.unitPrice && <FormMessage>{errors.unitPrice.message}</FormMessage>}
+                    {errors.UnitPrice && <FormMessage>{errors.UnitPrice.message}</FormMessage>}
                 </FormItem>
 
                 <FormItem>

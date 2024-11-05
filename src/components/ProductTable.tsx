@@ -85,7 +85,7 @@ const ProductTable: React.FC = () => {
                     <TableRow key={product.idproducts}>
                         <TableCell>{product.idproducts}</TableCell>
                         <TableCell>{product.name}</TableCell>
-                        <TableCell>{product.unitPrice}</TableCell>
+                        <TableCell>{product.UnitPrice}</TableCell>
                         <TableCell>
                             <Button onClick={() => handleEdit(product.idproducts)}>Edit/View</Button>
                             <Button variant="destructive" onClick={() => handleOpenDeleteDialog(product)}>Delete</Button>
