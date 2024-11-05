@@ -11,7 +11,7 @@ import {
   } from "@/components/ui/table"
 import { useRouter } from 'next/navigation';
 import { Button } from './ui/button';
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from './ui/dialog';
 
 const ProductTable: React.FC = () => {
     const [products, setProducts] = useState<Product[]>([]);
