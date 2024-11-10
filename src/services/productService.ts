@@ -1,21 +1,31 @@
 // services/productService.ts
 import axios from 'axios';
+import { getSession } from 'next-auth/react';
 
 // Define la URL base de tu API
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL+"/tienda/product";
 
 const api = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_API_URL+"/tienda/product",
+    baseURL: API_BASE_URL,
     headers: {
       'ngrok-skip-browser-warning': 'true', // Agregar este encabezado para evitar el warningt
     }
   });
+
+  api.interceptors.request.use(async (config) => {
+    const session = await getSession();
+    if (session?.accessToken) {
+      config.headers['Authorization'] = `Bearer ${session.accessToken}`;
+    }
+    return config;
+  });
+  
 // Define la interfaz para un producto
 export interface Product {
     idproducts: number;
     name: string;
     imageUrl: string;
-    UnitPrice: number;
+    unitPrice: number;
     is_deleted: number;
 }
 
@@ -28,6 +38,7 @@ export interface ProductWithImage {
 const productService = {
     async createProduct(data: FormData): Promise<Product> {
         const response = await api.post(`${API_BASE_URL}/create`, data);
+        console.log(response.data.unitPrice);
         return response.data;
     },
 

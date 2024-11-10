@@ -27,11 +27,11 @@ import { Button } from './ui/button';
 
 
 const productSchema = z.object({
-    name: z.string().min(1, "Product name is required").max(100, "Name is too long"),
-    UnitPrice: z.number().positive("Unit price must be positive").max(99999, "Price too high"),
+    name: z.string().min(1, "EL nombre del producto es requerido").max(100, "El nombre es muy largo"),
+    unitPrice: z.number().multipleOf(0.01).positive("El precio unitario debe ser positivo").max(99999, "El Precio es muy alto"),
     image: z
         .any()
-        .refine((file) => file instanceof File, "Image file is required")
+        .refine((file) => file instanceof File, "Archivo de imagen es obligatorio")
         .optional()
 });
 
@@ -53,16 +53,16 @@ const CreateProductForm: React.FC = () => {
 
         const formData = new FormData();
         formData.append('name', data.name);
-        formData.append('UnitPrice', data.UnitPrice.toString());
+        formData.append('unitPrice', data.unitPrice.toFixed(2));
+        console.log(formData.get('unitPrice') + "component")
         if (imageFile) {
             formData.append('file', imageFile);
         }
-        console.log(imageFile?.name)
         try {
             await productService.createProduct(formData);
             router.refresh()
         } catch (error) {
-            console.error('Error creating product:', error);
+            console.error('Error al crear un producto:', error);
         } finally {
             setIsLoading(false);
         }
@@ -82,12 +82,12 @@ const CreateProductForm: React.FC = () => {
         <FormProvider {...formMethods}>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <FormItem>
-                    <Label htmlFor="name">Product Name</Label>
+                    <Label htmlFor="name">Nombre del producto</Label>
                     <FormControl>
                         <Input
                             id="name"
                             type="text"
-                            placeholder="Enter product name"
+                            placeholder="Inserte un nombre del producto"
                             {...register('name')}
                         />
                     </FormControl>
@@ -95,20 +95,21 @@ const CreateProductForm: React.FC = () => {
                 </FormItem>
 
                 <FormItem>
-                    <Label htmlFor="UnitPrice">Unit Price</Label>
+                    <Label htmlFor="UnitPrice">Precio unitario</Label>
                     <FormControl>
                         <Input
                             id="unitPrice"
                             type="number"
-                            placeholder="Enter unit price"
-                            {...register('UnitPrice', { valueAsNumber: true })}
+                            step="any"
+                            placeholder="Inserte el precio unitario"
+                            {...register('unitPrice', { valueAsNumber: true })}
                         />
                     </FormControl>
-                    {errors.UnitPrice && <FormMessage>{errors.UnitPrice.message}</FormMessage>}
+                    {errors.unitPrice && <FormMessage>{errors.unitPrice.message}</FormMessage>}
                 </FormItem>
 
                 <FormItem>
-                    <Label htmlFor="image">Product Image</Label>
+                    <Label htmlFor="image">Imagen del producto</Label>
                     <FormControl>
                         <Input
                             id="image"
@@ -121,7 +122,7 @@ const CreateProductForm: React.FC = () => {
                 </FormItem>
 
                 <Button type="submit" disabled={isLoading}>
-                    {isLoading ? 'Creating...' : 'Create Product'}
+                    {isLoading ? 'Creando...' : 'Producto creado'}
                 </Button>
             </form>
         </FormProvider>

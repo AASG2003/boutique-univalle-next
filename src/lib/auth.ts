@@ -33,12 +33,11 @@ export const authOptions: NextAuthOptions = {
                 if (!credentials?.email || !credentials?.password) {
                     throw new Error("Email and password are required");
                 }
-
                 try {
                     const user = await login(credentials.email, credentials.password); // Adjust as necessary
                     if (user) {
                         return {
-                            accessToken: user.token,
+                            accessToken: user.access_token,
                             new: user.new, // Assuming your API returns 'new'
                             ...user.user // Include user details if available
                         };

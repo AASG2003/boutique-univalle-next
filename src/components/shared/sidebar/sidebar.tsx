@@ -13,8 +13,12 @@ import {
 import {
     dataSidebarRoutes
 } from "@/components/shared/sidebarRoutes/sidebarRoutes.data";
+import { signOut } from "next-auth/react";
 
 export function AppSidebar() {
+    const handleLogout = async () => {
+        await signOut({ redirect: false}); // Redirige a la página principal después de cerrar sesión
+    };
     return (
         <Sidebar>
             <SidebarContent>
@@ -32,6 +36,9 @@ export function AppSidebar() {
                                     </SidebarMenuButton>
                                 </SidebarMenuItem>
                             ))}
+                            <button onClick={handleLogout} className="logout-button">
+                                Cerrar Sesión
+                            </button>
                         </SidebarMenu>
                     </SidebarGroupContent>
                 <SidebarGroup />
