@@ -3,7 +3,7 @@ import axios from 'axios';
 import { getSession } from 'next-auth/react';
 
 // Define la URL base de tu API
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL+"/tienda/product";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL+"/tienda/department";
 
 const api = axios.create({
     baseURL: API_BASE_URL,

@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import { z } from 'zod';
 import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -60,7 +60,7 @@ const CreateProductForm: React.FC = () => {
         }
         try {
             await productService.createProduct(formData);
-            router.refresh()
+            redirect("/protected/products/create")
         } catch (error) {
             console.error('Error al crear un producto:', error);
         } finally {

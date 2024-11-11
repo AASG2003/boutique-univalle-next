@@ -11,7 +11,7 @@ export const dataSidebarRoutes = [
     },
     {
         title: 'Productos',
-        url: "/products",
+        url: "/protected/products",
         icon: BoxIcon
     }
 ]

@@ -7,9 +7,6 @@ import { login } from "../services/authService"; // Adjust the import path as ne
 declare module "next-auth" {
     interface Session {
         accessToken: string;
-        new: boolean;
-        user: {
-        } & DefaultSession["user"];
     }
 }
 
@@ -38,14 +35,12 @@ export const authOptions: NextAuthOptions = {
                     if (user) {
                         return {
                             accessToken: user.access_token,
-                            new: user.new, // Assuming your API returns 'new'
-                            ...user.user // Include user details if available
                         };
                     }
                     return null;
-                } catch (error) {
-                    console.error("Authorization error:", error);
-                    return null;
+                } catch (error:any) {
+                    throw new Error(error.message);
+                    return error;
                 }
             },
         }),

@@ -11,7 +11,7 @@ import {
   } from "@/components/ui/table"
 import { useRouter } from 'next/navigation';
 import { Button } from './ui/button';
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from './ui/dialog';
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
 
 const ProductTable: React.FC = () => {
     const [products, setProducts] = useState<Product[]>([]);
@@ -23,8 +23,12 @@ const ProductTable: React.FC = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
+                console.log("data")
                 const data = await productService.fetchAllProducts();
                 setProducts(data);
+                const prueba = await productService.paginateProducts(5, 0);
+                console.log("prueba");
+                console.log(data.length)
             } catch (error) {
                 console.error('Error fetching products:', error);
             } finally {
