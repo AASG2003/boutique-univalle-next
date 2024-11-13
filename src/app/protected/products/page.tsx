@@ -1,7 +1,8 @@
 import React from 'react';
 import ProductTable from '@/components/ProductTable';
 import Link from 'next/link';
-import CreateProductForm from '@/components/CreateProductForm';
+// import CreateProductForm from '@/components/CreateProductForm';
+
 
 const productsPage = () => {
     return (
@@ -14,6 +15,6 @@ const productsPage = () => {
         </div>
     );
   };
-  
+
 export default productsPage;
   

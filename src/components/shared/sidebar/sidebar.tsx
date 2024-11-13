@@ -1,48 +1,39 @@
 "use client";
 
 import {
-    Sidebar,
-    SidebarContent,
-    SidebarGroup,
-    SidebarGroupContent,
-    SidebarGroupLabel,
-    SidebarMenu,
-    SidebarMenuButton,
-    SidebarMenuItem,
+  Sidebar,
+  SidebarContent, SidebarFooter, SidebarHeader,
+  SidebarMenuButton,
 } from "@/components/ui/sidebar"
-import {
-    dataSidebarRoutes
-} from "@/components/shared/sidebarRoutes/sidebarRoutes.data";
 import { signOut } from "next-auth/react";
+import {Logo} from "@/components/shared/logo/logo";
+import React from "react";
+import {SidebarRoutes} from "@/components/shared/sidebarRoutes";
+import {LogOutIcon} from "lucide-react";
 
-export function AppSidebar() {
-    const handleLogout = async () => {
-        await signOut({ redirect: false}); // Redirige a la página principal después de cerrar sesión
-    };
-    return (
-        <Sidebar>
-            <SidebarContent>
-                <SidebarGroup />
-                    <SidebarGroupLabel>Boutique Univalle</SidebarGroupLabel>
-                    <SidebarGroupContent>
-                        <SidebarMenu>
-                            {dataSidebarRoutes.map((route) => (
-                                <SidebarMenuItem key={route.title}>
-                                    <SidebarMenuButton asChild>
-                                        <a href={route.url}>
-                                            <route.icon />
-                                            <span>{route.title}</span>
-                                        </a>
-                                    </SidebarMenuButton>
-                                </SidebarMenuItem>
-                            ))}
-                            <button onClick={handleLogout} className="logout-button">
-                                Cerrar Sesión
-                            </button>
-                        </SidebarMenu>
-                    </SidebarGroupContent>
-                <SidebarGroup />
-            </SidebarContent>
-        </Sidebar>
-    )
+export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+
+  const handleLogout = async () => {
+    await signOut({ redirect: false}); // Redirige a la página principal después de cerrar sesión
+  };
+
+  return (
+    <Sidebar collapsible="icon" {...props}>
+      <SidebarContent>
+        <SidebarHeader>
+          <Logo />
+        </SidebarHeader>
+        <SidebarContent>
+          <SidebarRoutes />
+        </SidebarContent>
+        <SidebarFooter>
+          <SidebarMenuButton onClick={handleLogout} className="hover:bg-red-500 hover:text-white" tooltip="Salir">
+            <LogOutIcon />
+            Salir
+          </SidebarMenuButton>
+        </SidebarFooter>
+
+      </SidebarContent>
+    </Sidebar>
+  )
 }

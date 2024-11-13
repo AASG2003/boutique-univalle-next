@@ -7,7 +7,7 @@ export const dataSidebarRoutes = [
     {
         title: 'Inicio',
         url: "/",
-        icon: HomeIcon
+        icon: HomeIcon,
     },
     {
         title: 'Productos',

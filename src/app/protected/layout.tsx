@@ -1,5 +1,4 @@
 import { getCurrentUser } from "@/lib/session";
-import { notFound } from "next/navigation";
 import { redirect } from "next/navigation";
 // import { Navbar } from '@/components/Navbar';
 import React from "react";
