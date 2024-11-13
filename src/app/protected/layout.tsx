@@ -1,6 +1,7 @@
 import { getCurrentUser } from "@/lib/session";
 import { redirect } from "next/navigation";
-// import { Navbar } from '@/components/Navbar';
+import { Toaster } from "@/components/ui/sonner"
+
 import React from "react";
 import {
     SidebarProvider,
@@ -23,7 +24,8 @@ export default async function MeLayout({ children }: { children: React.ReactNode
 
                 {/*<Navbar/>*/}
                 <main className="flex-grow">
-                    <SidebarTrigger />
+                    <SidebarTrigger className="pl-4"/>
+                    <Toaster />
                     {children}
                 </main>
             {/*</div>*/}

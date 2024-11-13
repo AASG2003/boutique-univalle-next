@@ -10,6 +10,7 @@ const productsPage = () => {
             <Link href="/protected/products/create">
               Crear Nuevo
             </Link>
+
             <CreateProductForm/>
         </div>
     );

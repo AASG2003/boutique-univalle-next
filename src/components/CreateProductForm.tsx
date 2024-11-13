@@ -78,54 +78,54 @@ const CreateProductForm: React.FC = () => {
         }
     };
 
-    return (
-        <FormProvider {...formMethods}>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <FormItem>
-                    <Label htmlFor="name">Nombre del producto</Label>
-                    <FormControl>
-                        <Input
-                            id="name"
-                            type="text"
-                            placeholder="Inserte un nombre del producto"
-                            {...register('name')}
-                        />
-                    </FormControl>
-                    {errors.name && <FormMessage>{errors.name.message}</FormMessage>}
-                </FormItem>
+    return (<FormProvider {...formMethods}>
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <FormItem>
+                <Label htmlFor="name">Nombre del producto</Label>
+                <FormControl>
+                    <Input
+                      id="name"
+                      type="text"
+                      placeholder="Inserte un nombre del producto"
+                      {...register('name')}
+                    />
+                </FormControl>
+                {errors.name && <FormMessage>{errors.name.message}</FormMessage>}
+            </FormItem>
 
-                <FormItem>
-                    <Label htmlFor="UnitPrice">Precio unitario</Label>
-                    <FormControl>
-                        <Input
-                            id="unitPrice"
-                            type="number"
-                            step="any"
-                            placeholder="Inserte el precio unitario"
-                            {...register('unitPrice', { valueAsNumber: true })}
-                        />
-                    </FormControl>
-                    {errors.unitPrice && <FormMessage>{errors.unitPrice.message}</FormMessage>}
-                </FormItem>
+            <FormItem>
+                <Label htmlFor="UnitPrice">Precio unitario</Label>
+                <FormControl>
+                    <Input
+                      id="unitPrice"
+                      type="number"
+                      step="any"
+                      placeholder="Inserte el precio unitario"
+                      {...register('unitPrice', { valueAsNumber: true })}
+                    />
+                </FormControl>
+                {errors.unitPrice && <FormMessage>{errors.unitPrice.message}</FormMessage>}
+            </FormItem>
 
-                <FormItem>
-                    <Label htmlFor="image">Imagen del producto</Label>
-                    <FormControl>
-                        <Input
-                            id="image"
-                            type="file"
-                            accept="image/*"
-                            onChange={handleImageChange}
-                        />
-                    </FormControl>
-                    {errors.image && <FormMessage>{errors.image.message}</FormMessage>}
-                </FormItem>
+            <FormItem>
+                <Label htmlFor="image">Imagen del producto</Label>
+                <FormControl>
+                    <Input
+                      id="image"
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageChange}
+                    />
+                </FormControl>
+                {errors.image && <FormMessage>{errors.image.message}</FormMessage>}
+            </FormItem>
 
-                <Button type="submit" disabled={isLoading}>
-                    {isLoading ? 'Creando...' : 'Producto creado'}
-                </Button>
-            </form>
-        </FormProvider>
+            <Button type="submit" disabled={isLoading}>
+                {isLoading ? 'Creando...' : 'Producto creado'}
+            </Button>
+        </form>
+    </FormProvider>
+
     );
 };
 
