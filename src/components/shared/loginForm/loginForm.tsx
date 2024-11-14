@@ -65,15 +65,20 @@ export function LoginForm() {
         Logout
       </button>) : (
         <Card className="mx-auto max-w-sm">
-          <CardHeader className="space-y-1">
+          <CardHeader
+            className="space-y-1 flex flex-col items-center text-center">
+
             <CardTitle className="text-2xl font-bold">Ingresar</CardTitle>
-            <CardDescription>Introduce tu correo y contraseña para ingresar</CardDescription>
+
+            <CardDescription>Introduce tu correo y contraseña para
+              ingresar</CardDescription>
           </CardHeader>
+
           {
             isAlertOpen && (
-              <div style={{ margin: "10px" }}>
+              <div style={{margin: "10px"}}>
                 <Alert variant="destructive">
-                  <AlertCircle className="h-4 w-4" />
+                <AlertCircle className="h-4 w-4" />
                   <AlertTitle>Error</AlertTitle>
                   <AlertDescription>
                     {alertMessage}

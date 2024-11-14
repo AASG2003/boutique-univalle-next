@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="29620666-444f-49c9-bf67-68199e0701da" name="Changes" comment="feat: Update navigation bar design">
+      <changelist_data name="Adhemar" email="" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UnivalleLogo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/UnivalleLogo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/protected/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/protected/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/protected/products/components/updateProductForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/protected/products/components/updateProductForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CreateProductForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CreateProductForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/loginForm/loginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/loginForm/loginForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/logo/logo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/logo/logo.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Adhemar" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AdheStern&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/AASG2003/boutique-univalle-next.git&quot;,
+    &quot;accountId&quot;: &quot;9c8a7845-8ece-4bf5-aa04-7514d830ec29&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/providers/theme-provider.tsx" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2oQiXp0lQpBtSo159FgYG7P8LEi" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Adhemar/Workspace/web/boutique-univalle-next/src/public",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode.TypeScript",
+    "ts.external.directory.path": "C:\\Users\\Adhemar\\Workspace\\web\\boutique-univalle-next\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Adhemar\Workspace\web\boutique-univalle-next\src\public" />
+      <recent name="C:\Users\Adhemar\Workspace\web\boutique-univalle-next" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Adhemar\Workspace\web\boutique-univalle-next" />
+      <recent name="C:\Users\Adhemar\Workspace\web\boutique-univalle-next\src\public" />
+      <recent name="C:\Users\Adhemar\Workspace\web\boutique-univalle-next\src\components\shared\loginForm" />
+      <recent name="C:\Users\Adhemar\Workspace\web\boutique-univalle-next\src" />
+      <recent name="C:\Users\Adhemar\Workspace\web\boutique-univalle-next\src\components" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.23726.96" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="29620666-444f-49c9-bf67-68199e0701da" name="Changes" comment="" />
+      <created>1730808242254</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730808242254</updated>
+      <workItem from="1730808244245" duration="7031000" />
+      <workItem from="1730980955243" duration="31000" />
+      <workItem from="1730981356933" duration="5849000" />
+      <workItem from="1731282500807" duration="584000" />
+      <workItem from="1731338592676" duration="796000" />
+      <workItem from="1731372532214" duration="863000" />
+      <workItem from="1731373961194" duration="1171000" />
+      <workItem from="1731413120958" duration="522000" />
+      <workItem from="1731414304830" duration="2365000" />
+      <workItem from="1731418954562" duration="2123000" />
+      <workItem from="1731450018644" duration="8227000" />
+      <workItem from="1731502514499" duration="7942000" />
+      <workItem from="1731584978628" duration="131000" />
+      <workItem from="1731585121900" duration="4268000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="9738ec7e-617f-47d0-a155-44c07f784e2b" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="9738ec7e-617f-47d0-a155-44c07f784e2b">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="user">
+                    <value>
+                      <list>
+                        <option value="*" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="header para evitar el warning de ngrok" />
+    <MESSAGE value="feat: Update navigation bar design" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Update navigation bar design" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/shared/logo/logo.tsx</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/ProductTable.tsx</url>
+          <line>155</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

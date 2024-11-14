@@ -86,7 +86,7 @@ export const UpdateProductForm: React.FC<updateProductFormProps> = ({idProduct, 
       console.log(error)
       console.error('Error al crear un producto:', error);
       toast.error("Error", {
-        description: "Error al crear un producto:",
+        description: "Error al actualizar el producto:",
       })
     } finally {
       setIsLoading(false);
@@ -143,7 +143,7 @@ export const UpdateProductForm: React.FC<updateProductFormProps> = ({idProduct, 
 
               <FormItem className="pt-4">
                 <Label htmlFor="image">Imagen del producto</Label>
-                {imageSrc && <Image src={imageSrc} width="200" height = "200" alt="imagen" />}
+                {imageSrc && <Image src={imageSrc} width="100" height="100" layout="responsive" alt="Imagen del producto" />}
                 <FormControl>
                   <Input
                     id="image"
