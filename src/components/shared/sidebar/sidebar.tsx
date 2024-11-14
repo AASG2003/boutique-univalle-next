@@ -14,7 +14,7 @@ import {LogOutIcon} from "lucide-react";
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   const handleLogout = async () => {
-    await signOut({ redirect: false}); // Redirige a la página principal después de cerrar sesión
+    await signOut({ redirect: true});
   };
 
   return (

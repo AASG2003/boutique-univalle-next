@@ -3,39 +3,51 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { useSession, signIn, signOut } from "next-auth/react"
-import { useEffect } from "react"
+import { useSession, signIn, signOut, SignInResponse } from "next-auth/react"
+import { useEffect, useState } from "react"
 
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FormField, FormItem, FormLabel, FormControl, FormMessage, Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { AlertCircle } from "lucide-react"
 
 const formSchema = z.object({
   email: z.string().email("Correo invalido"),
-  password: z.string().min(8, "La contraseña es de minimo 8 caracteres"),
+  password: z.string().min(1, "Introduzca su contraseña"),
 })
 
 type FormValues = z.infer<typeof formSchema>
 
 export function LoginForm() {
+  const [isAlertOpen, setIsAlertOpen] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
   const router = useRouter();
   const { data: session } = useSession()
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
   })
   const handleLogout = async () => {
-    await signOut({ redirect: false}); // Redirige a la página principal después de cerrar sesión
+    await signOut({ redirect: false }); // Redirige a la página principal después de cerrar sesión
   };
 
   const onSubmit = async (data: FormValues) => {
     try {
-      await signIn("credentials", {
+      const res: SignInResponse | undefined = await signIn("credentials", {
         redirect: false,
         email: data.email,
         password: data.password,
       })
+      console.log("hola")
+      if (res?.error) {
+        setIsAlertOpen(true);
+        setAlertMessage(res.error);
+        setTimeout(() => {
+          setIsAlertOpen(false);
+        }, 3000)
+      }
     } catch (error) {
       console.error("Login error:", error)
     }
@@ -57,6 +69,19 @@ export function LoginForm() {
             <CardTitle className="text-2xl font-bold">Ingresar</CardTitle>
             <CardDescription>Introduce tu correo y contraseña para ingresar</CardDescription>
           </CardHeader>
+          {
+            isAlertOpen && (
+              <div style={{ margin: "10px" }}>
+                <Alert variant="destructive">
+                  <AlertCircle className="h-4 w-4" />
+                  <AlertTitle>Error</AlertTitle>
+                  <AlertDescription>
+                    {alertMessage}
+                  </AlertDescription>
+                </Alert>
+              </div>
+            )
+          }
           <CardContent>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -92,9 +117,9 @@ export function LoginForm() {
                     />
                   </div>
 
-                    <Button type="submit" className="w-full">
-                      Continuar
-                    </Button>
+                  <Button type="submit" className="w-full">
+                    Continuar
+                  </Button>
 
                 </div>
 

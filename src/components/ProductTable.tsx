@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import productService, { Product } from '../services/productService';
+import productService, { Product} from '../services/productService';
 import { Skeleton } from "@/components/ui/skeleton"
 import {
   Table,
@@ -18,17 +18,18 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { useRouter } from 'next/navigation';
 import { Button } from './ui/button';
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle} from './ui/dialog';
 import {Ellipsis, Pencil, Trash} from "lucide-react";
+import UpdateProductForm from '@/app/protected/products/components/updateProductForm';
 
 const ProductTable: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  const [updateSheet, setUpdateSheet] = useState<boolean>(false);
+  const [idProduct, setIdProduct] = useState(0);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const router = useRouter();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -49,8 +50,8 @@ const ProductTable: React.FC = () => {
   }, []);
 
   const handleEdit = (id: number) => {
-    // Redirigir a la página de edición
-    router.push(`/products/edit/${id}`);
+    setIdProduct(id);
+    setUpdateSheet(true);
   };
 
   const handleOpenDeleteDialog = (product: Product) => {
@@ -97,6 +98,7 @@ const ProductTable: React.FC = () => {
 
   return (
     <section className="border rounded-lg">
+      <UpdateProductForm idProduct={idProduct} sheetOpen={updateSheet}/>
       <Table>
         <TableHeader>
           <TableRow>

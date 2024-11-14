@@ -57,7 +57,7 @@ const productService = {
         return response.data;
     },
 
-    async updateProduct(id: number, data: Partial<Product>): Promise<Product> {
+    async updateProduct(id: number, data: FormData): Promise<Product> {
         const response = await api.patch(`${API_BASE_URL}/updateOne/${id}`, data);
         return response.data;
     },
