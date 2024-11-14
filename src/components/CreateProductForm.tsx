@@ -1,26 +1,16 @@
 "use client"
 import React, { useState } from 'react';
-import { redirect, useRouter } from 'next/navigation';
+import { redirect} from 'next/navigation';
 import { z } from 'zod';
 import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import productService from '../services/productService';
 import {
-    Form,
-    FormField,
     FormItem,
     FormControl,
     FormMessage,
 } from './ui/form';
 
-import {
-    Dialog,
-    DialogTrigger,
-    DialogContent,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle
-} from './ui/dialog';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Button } from './ui/button';
@@ -38,7 +28,6 @@ const productSchema = z.object({
 type ProductFormData = z.infer<typeof productSchema>;
 
 const CreateProductForm: React.FC = () => {
-    const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
     const [imageFile, setImageFile] = useState<File | null>(null);
 

@@ -7,6 +7,7 @@ export const login = async (email: string, pass: string) => {
     pass,
   });
   return response.data;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch(error:any){
     if(error.response){
       throw new Error(error.response.data.message)

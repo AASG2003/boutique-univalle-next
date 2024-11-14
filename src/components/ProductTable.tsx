@@ -36,7 +36,6 @@ const ProductTable: React.FC = () => {
         console.log("data")
         const data = await productService.fetchAllProducts();
         setProducts(data);
-        const prueba = await productService.paginateProducts(5, 0);
         console.log("prueba");
         console.log(data.length)
       } catch (error) {
