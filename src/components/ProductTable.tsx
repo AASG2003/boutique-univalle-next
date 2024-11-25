@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import productService, { Product} from '../services/productService';
+import productService, { Product } from '../services/productService';
 import { Skeleton } from "@/components/ui/skeleton"
 import {
   Table,
@@ -20,10 +20,11 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Button } from './ui/button';
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle} from './ui/dialog';
-import {Ellipsis, Pencil, Trash} from "lucide-react";
+import { Ellipsis, Pencil, Trash } from 'lucide-react';
 import UpdateProductForm from '@/app/protected/products/components/updateProductForm';
 
 const ProductTable: React.FC = () => {
+  // State declarations
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
@@ -31,14 +32,12 @@ const ProductTable: React.FC = () => {
   const [idProduct, setIdProduct] = useState(0);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
+  // Fetch products on component mount
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        console.log("data")
         const data = await productService.fetchAllProducts();
         setProducts(data);
-        console.log("prueba");
-        console.log(data.length)
       } catch (error) {
         console.error('Error fetching products:', error);
       } finally {
@@ -49,21 +48,25 @@ const ProductTable: React.FC = () => {
     fetchProducts();
   }, []);
 
+  // Handler for edit button click
   const handleEdit = (id: number) => {
     setIdProduct(id);
     setUpdateSheet(true);
   };
 
+  // Handler for delete dialog open
   const handleOpenDeleteDialog = (product: Product) => {
     setSelectedProduct(product);
     setIsDeleteDialogOpen(true);
   };
 
+  // Handler for delete dialog close
   const handleCloseDeleteDialog = () => {
     setIsDeleteDialogOpen(false);
     setSelectedProduct(null);
   };
 
+  // Handler for product deletion
   const handleDelete = async () => {
     if (selectedProduct) {
       try {
@@ -77,6 +80,15 @@ const ProductTable: React.FC = () => {
     }
   };
 
+  // New handler for sheet open state
+  const handleSheetOpenChange = (open: boolean) => {
+    setUpdateSheet(open);
+    if (!open) {
+      setIdProduct(0); // Reset idProduct when sheet is closed
+    }
+  };
+
+  // Loading skeleton
   if (loading) {
     return (
       <div className="flex flex-col">
@@ -92,19 +104,26 @@ const ProductTable: React.FC = () => {
     );
   }
 
+  // No products found
   if (products.length === 0) {
     return <h2>No se encontraron productos</h2>;
   }
 
+  // Render product table
   return (
     <section className="border rounded-lg">
-      <UpdateProductForm idProduct={idProduct} sheetOpen={updateSheet}/>
+      <UpdateProductForm 
+        idProduct={idProduct} 
+        sheetOpen={updateSheet}
+        onOpenChange={handleSheetOpenChange} // New prop for handling sheet state
+      />
       <Table>
         <TableHeader>
           <TableRow>
             <TableHead>ID</TableHead>
             <TableHead>Nombre</TableHead>
             <TableHead>Precio Unitario</TableHead>
+            <TableHead>Acciones</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -122,39 +141,37 @@ const ProductTable: React.FC = () => {
                     <DropdownMenuLabel>Acciones</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem onClick={() => handleEdit(product.idproducts)}>
-                      <Pencil />
+                      <Pencil className="mr-2 h-4 w-4" />
                       <span>Editar</span>
-                      {/*<Button variant="outline" onClick={() => handleEdit(product.idproducts)}>Editar</Button>*/}
                     </DropdownMenuItem>
                     <DropdownMenuItem onClick={() => handleOpenDeleteDialog(product)}>
-                      <Trash />
+                      <Trash className="mr-2 h-4 w-4" />
                       <span>Eliminar</span>
-                      {/*<Button variant="destructive" >Eliminar</Button>*/}
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
-
-
               </TableCell>
             </TableRow>
           ))}
         </TableBody>
-        <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>¿Eliminar Producto?</DialogTitle>
-              <p>Esta acción no se puede deshacer.</p>
-            </DialogHeader>
-            <DialogFooter>
-              <Button variant="outline" onClick={handleCloseDeleteDialog}>Cancelar</Button>
-              <Button variant="destructive" onClick={handleDelete}>Eliminar</Button>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
       </Table>
+      
+      {/* Delete confirmation dialog */}
+      <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>¿Eliminar Producto?</DialogTitle>
+            <p>Esta acción no se puede deshacer.</p>
+          </DialogHeader>
+          <DialogFooter>
+            <Button variant="outline" onClick={handleCloseDeleteDialog}>Cancelar</Button>
+            <Button variant="destructive" onClick={handleDelete}>Eliminar</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </section>
-
   );
 };
 
 export default ProductTable;
+
