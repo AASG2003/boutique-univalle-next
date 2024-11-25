@@ -60,7 +60,7 @@ export default async function MeLayout({children, params,}: {
                   </BreadcrumbItem>
                   <BreadcrumbSeparator className="hidden md:block" />
                   <BreadcrumbItem>
-                    <BreadcrumbPage>{pageTitle}</BreadcrumbPage>
+                    <BreadcrumbPage>Productos</BreadcrumbPage>
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>
