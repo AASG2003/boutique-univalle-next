@@ -1,14 +1,14 @@
 import {
     BoxIcon,
-    HomeIcon
+    // HomeIcon
 } from "lucide-react";
 
 export const dataSidebarRoutes = [
-    {
-        title: 'Inicio',
-        url: "/",
-        icon: HomeIcon,
-    },
+    // {
+    //     title: 'Inicio',
+    //     url: "/",
+    //     icon: HomeIcon,
+    // },
     {
         title: 'Productos',
         url: "/protected/products",

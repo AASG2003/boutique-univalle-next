@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { useSession, signIn, signOut, SignInResponse } from "next-auth/react"
+import { useSession, signIn, SignInResponse } from "next-auth/react"
 import { useEffect, useState } from "react"
 
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
@@ -29,9 +29,6 @@ export function LoginForm() {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
   })
-  const handleLogout = async () => {
-    await signOut({ redirect: false }); // Redirige a la página principal después de cerrar sesión
-  };
 
   const onSubmit = async (data: FormValues) => {
     try {
@@ -61,9 +58,9 @@ export function LoginForm() {
 
   return (
     <div>
-      {session ? (<button onClick={handleLogout} className="logout-button">
-        Logout
-      </button>) : (
+      {session ? (<p>
+        Ingresando...
+      </p>) : (
         <Card className="mx-auto max-w-sm">
           <CardHeader
             className="space-y-1 flex flex-col items-center text-center">

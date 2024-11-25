@@ -56,7 +56,7 @@ export const UpdateProductForm: React.FC<updateProductFormProps> = ({idProduct, 
       fetchProduct();
       setIsSheetOpen(sheetOpen);
     }
-  }, [idProduct]);
+  }, [idProduct, product]);
 
   const formMethods = useForm<ProductFormData>({
     resolver: zodResolver(productSchema),
@@ -143,7 +143,7 @@ export const UpdateProductForm: React.FC<updateProductFormProps> = ({idProduct, 
 
               <FormItem className="pt-4">
                 <Label htmlFor="image">Imagen del producto</Label>
-                {imageSrc && <Image src={imageSrc} width="100" height="100" layout="responsive" alt="Imagen del producto" />}
+                {imageSrc && <Image src={imageSrc} width="50" height="50" layout="responsive" alt="Imagen del producto" />}
                 <FormControl>
                   <Input
                     id="image"
