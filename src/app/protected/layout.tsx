@@ -26,7 +26,7 @@ import { AppSidebar } from "@/components/shared/sidebar";
   };
 
   const getPageTitle = (pathname: string): string => {
-    return titles[pathname] || "Página Desconocida";
+    return titles[pathname] || "Productos";
   };
 
 export default async function MeLayout({children, params,}: {
@@ -38,7 +38,7 @@ export default async function MeLayout({children, params,}: {
     redirect("/login");
   }
 
-  const pathname = "Productos";
+  const pathname = params.pathname || "";
   const pageTitle = getPageTitle(pathname);
 
   return (
