@@ -18,7 +18,7 @@ import { Button } from './ui/button';
 
 const productSchema = z.object({
   name: z.string().min(1, "EL nombre del producto es requerido").max(100, "El nombre es muy largo"),
-  unitPrice: z.number().multipleOf(0.01).positive("El precio unitario debe ser positivo").max(99999, "El Precio es muy alto"),
+  unitPrice: z.number().multipleOf(0.01).positive("El precio unitario debe ser positivo").min(1, "El precio es obligatorio").max(99999, "El Precio es muy alto"),
   image: z
     .any()
     .refine((file) => file instanceof File, "Archivo de imagen es obligatorio")
