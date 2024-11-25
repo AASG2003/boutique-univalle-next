@@ -42,6 +42,7 @@ interface UpdateProductFormProps {
 export const UpdateProductForm: React.FC<UpdateProductFormProps> = ({ idProduct, sheetOpen, onOpenChange }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [imageFile, setImageFile] = useState<File | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [product, setProduct] = useState<Product | null>(null);
   const [imageSrc, setImageSrc] = useState<string | null>(null);
 
