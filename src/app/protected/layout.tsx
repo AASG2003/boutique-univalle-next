@@ -38,7 +38,7 @@ export default async function MeLayout({children, params,}: {
     redirect("/login");
   }
 
-  const pathname = params.pathname || "";
+  const pathname = "Productos";
   const pageTitle = getPageTitle(pathname);
 
   return (
@@ -60,7 +60,7 @@ export default async function MeLayout({children, params,}: {
                   </BreadcrumbItem>
                   <BreadcrumbSeparator className="hidden md:block" />
                   <BreadcrumbItem>
-                    <BreadcrumbPage>Productos</BreadcrumbPage>
+                    <BreadcrumbPage>{pageTitle}</BreadcrumbPage>
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>
