@@ -120,7 +120,6 @@ const ProductTable: React.FC = () => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>ID</TableHead>
             <TableHead>Nombre</TableHead>
             <TableHead>Precio Unitario</TableHead>
             <TableHead>Acciones</TableHead>
@@ -129,7 +128,6 @@ const ProductTable: React.FC = () => {
         <TableBody>
           {products.map((product) => (
             <TableRow key={product.idproducts}>
-              <TableCell>{product.idproducts}</TableCell>
               <TableCell>{product.name}</TableCell>
               <TableCell><span>Bs. </span>{product.unitPrice}</TableCell>
               <TableCell>
